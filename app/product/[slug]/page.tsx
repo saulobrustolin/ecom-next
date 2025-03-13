@@ -4,6 +4,7 @@ import path from 'path';
 import { slug } from '@/config/definitions';
 
 import ImagesProduct from '@/modules/product/images-product';
+import DetailsProduct from '@/modules/product/details-product';
 
 export default async function Product({
     params,
@@ -20,8 +21,16 @@ export default async function Product({
     }));
 
     return (
-        <div>
-            <ImagesProduct images={images} />
-        </div>
+        <main
+            className='flex items-center justify-center my-8'
+        >
+            <div
+                className='grid grid-cols-2 w-[90%]'
+            >
+                <ImagesProduct images={images}/>
+
+                <DetailsProduct slug={slug}/>
+            </div>
+        </main>
     );
 }

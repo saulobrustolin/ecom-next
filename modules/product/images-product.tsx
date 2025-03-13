@@ -3,10 +3,9 @@ import { ImagesProductProps } from '@/config/definitions';
 import Image from 'next/image';
 
 export default function ImagesProduct({ images }: ImagesProductProps) {
-
   return (
     <div
-      className=''
+      className='flex gap-2'
     >
       <div
         className='flex flex-col gap-2'
@@ -14,16 +13,40 @@ export default function ImagesProduct({ images }: ImagesProductProps) {
         {images.length > 0 ? (
           images.map((image, index) => (
             (images.length == 5) ? (
-              <Image key={index} src={image.path} alt={`Imagem ${index}`} width={150} height={150} className='border border-stone-500/50 rounded-md'/>
-            ) : images.length > 5 && index < 4 ? (
-              <Image key={index} src={image.path} alt={`Imagem ${index}`} width={150} height={150} className='border border-stone-500/50 rounded-md'/>
-            ) : ''
+              <Image key={index} src={image.path} alt={`Imagem ${index}`} width={100} height={100} className='border border-stone-500/50 rounded-md h-[calc(100%/4)]'/>
+            ) : images.length > 5 && index < 3 ? (
+              <Image key={index} src={image.path} alt={`Imagem ${index}`} width={100} height={100} className='border border-stone-500/50 rounded-md h-[calc(100%/4)]'/>
+            ) : (
+                ''
+            )
         ))
         ) : (
           <p
             className='uppercase text-xs text-stone-500'
           >Sem imagens para este produto.</p>
         )}
+
+        <div
+            className='w-full h-[calc(100%/4)] border border-stone-500/50 rounded-md flex justify-center items-center'
+        >
+            <h1
+                className='text-2xl font-semibold text-stone-400'
+            >
+                +{images.length - 3}
+            </h1>
+        </div>
+      </div>
+
+      <div
+        className='border rounded-md border-stone-500/50 flex items-center justify-center relative'
+      >
+        <span
+            className='absolute cursor-pointer left-[100%] top-[calc(50% - 5px)] bg-stone-500/75 rounded-full w-[40px] h-[40px] flex justify-center items-center'
+        >
+            <Image src='/arrow.svg' width={10} height={10} alt='flecha' className='opacity-75'/>
+        </span>
+
+        <Image src={images[0].path} width={500} height={500} alt='Imagem principal' className='rounded-md min-w-full'/>
       </div>
     </div>
   );
