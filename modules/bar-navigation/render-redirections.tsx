@@ -26,5 +26,5 @@ export default function RenderRedirections() {
         );
     });
 
-    return <div className='flex text-xs text-stone-500 capitalize gap-4 content-center flex-wrap'>{links}</div>;
+    return <div className='hidden text-xs text-stone-500 capitalize gap-4 content-center flex-wrap md:flex'>{links}</div>;
 }

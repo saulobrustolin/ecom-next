@@ -3,7 +3,7 @@ import path from 'path';
 
 import { slug } from '@/config/definitions';
 
-import ImagesProduct from '@/modules/product/images-product';
+import { ProductSlider } from '@/modules/product/slider-component';
 import DetailsProduct from '@/modules/product/details-product';
 
 export default async function Product({
@@ -22,12 +22,12 @@ export default async function Product({
 
     return (
         <main
-            className='flex items-center justify-center my-8'
+            className='flex items-center justify-center my-4'
         >
             <div
-                className='grid grid-cols-2 w-[90%]'
+                className='gap-5 justify-center flex flex-col xl:w-[70%] md:w-[80%]'
             >
-                <ImagesProduct images={images}/>
+                <ProductSlider images={images}/>
 
                 <DetailsProduct slug={slug}/>
             </div>
