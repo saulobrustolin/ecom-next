@@ -1,7 +1,7 @@
 export default function DescriptionProduct() {
     return (
         <div
-            className='flex flex-col gap-2'
+            className='flex flex-col gap-4'
         >
             <h4
                 className='italic font-bold text-lg'
