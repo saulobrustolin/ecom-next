@@ -9,3 +9,10 @@ interface Image {
 export interface ImagesProductProps {
     images: Image[];
 }
+
+export interface availableVariable {
+    id: number,
+    type: string,
+    value: string,
+    fk_product: number
+}
